@@ -16,11 +16,6 @@
 virtualenv .
 source ./bin/activate
 
-pip3 install dm-haiku
-pip3 install jax
-pip3 install flax
-pip3 install tensorflow
-pip3 install tensorflow-datasets
-pip3 install matplotlib
+pip3 install --require-hashes -r requirements.txt
 
 python3 -m image_classification --rho=0.1 --time_limit_in_hours=0.03 --hessian_check_gap=0.001 --mlp_width=100
