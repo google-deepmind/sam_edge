@@ -32,7 +32,7 @@ python3 -m transformer --rho=0.1 \
 - cnn_layers_per_block (int): the number of convolutional layers in each block
 - cnn_feature_multiplier (int): the number of channels in the first convolutional layer
 - mini_training_set_num_batches (int): if this is not None, make a reduced training set with this number of minibatches
-- mini_test_set_num_batches (int): if this is not None, make a reduced training set with this number of minibatches
+- mini_test_set_num_batches (int): if this is not None, make a reduced test set with this number of minibatches
 - eigs_curve_output (str): where to output the PDF file with plots of eigenvalues and edge-of-stability thresholds
 - eigs_se_only_output (str): where to output the PDF file with plots of eigenvalues and the SAM-edge only
 - alignment_curve_output (str): where to output the PDF file with alignments between gradients and the principal eigenvector of the Hessian
