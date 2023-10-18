@@ -11,6 +11,7 @@ absl-py==1.4.0 \
     #   array-record
     #   chex
     #   dm-haiku
+    #   etils
     #   optax
     #   orbax-checkpoint
     #   tensorboard
@@ -236,7 +237,7 @@ dm-tree==0.1.8 \
     --hash=sha256:f7ac31b9aecccb2c6e1ab29706f6ded3eba0c2c69c770322c9c685929c3d6afb \
     --hash=sha256:fa42a605d099ee7d41ba2b5fb75e21423951fd26e5d50583a00471238fb3021d
     # via tensorflow-datasets
-etils[enp,epath,epy,etree]==1.5.0 \
+etils[array-types,enp,epath,epy,etqdm,etree]==1.5.0 \
     --hash=sha256:8f4d7cd4ced7a888489cf52a1470457695a9988fa05e767c44a3a5b0f395dd43 \
     --hash=sha256:e28bf37a0ee20e81d6cf301ce64574763cc4ade8580a2b3276b790993c167d12
     # via
@@ -1171,7 +1172,9 @@ toolz==0.12.0 \
 tqdm==4.66.1 \
     --hash=sha256:d302b3c5b53d47bce91fea46679d9c3c6508cf6332229aa1e7d8653723793386 \
     --hash=sha256:d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7
-    # via tensorflow-datasets
+    # via
+    #   etils
+    #   tensorflow-datasets
 typing-extensions==4.8.0 \
     --hash=sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0 \
     --hash=sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef
@@ -1181,9 +1184,9 @@ typing-extensions==4.8.0 \
     #   flax
     #   orbax-checkpoint
     #   tensorflow
-urllib3==2.0.6 \
-    --hash=sha256:7a7c7003b000adf9e7ca2a377c9688bbc54ed41b985789ed576570342a375cd2 \
-    --hash=sha256:b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564
+urllib3==2.0.7 \
+    --hash=sha256:c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84 \
+    --hash=sha256:fdb6d215c776278489906c2f8916e6e7d4f5a9b602ccbcfdf7f016fc8da0596e
     # via requests
 werkzeug==3.0.0 \
     --hash=sha256:3ffff4dcc32db52ef3cc94dff3000a3c2846890f3a5a51800a27b909c5e770f0 \
@@ -1267,5 +1270,6 @@ zipp==3.17.0 \
     # via etils
 
 # WARNING: The following packages were not pinned, but pip requires them to be
-# pinned when the requirements file includes hashes. Consider using the --allow-unsafe flag.
+# pinned when the requirements file includes hashes and the requirement is not
+# satisfied by a package already installed. Consider using the --allow-unsafe flag.
 # setuptools
