@@ -153,7 +153,7 @@ class CNN(nn.Module):
 class MLP(nn.Module):
   """A standard multi-layer perceptron."""
   input_to_hidden_def: ModuleDef
-  hidden_to_hidden_def: ModuleDef
+  hidden_to_hidden_defs: ModuleDef
   output_def: ModuleDef
 
   @nn.compact
@@ -161,8 +161,8 @@ class MLP(nn.Module):
     h = x.reshape((x.shape[0], -1))  # flatten
     h = self.input_to_hidden_def(h)
     h = nn.relu(h)
-    for _ in range(args.mlp_depth-2):
-      h = self.hidden_to_hidden_def(h)
+    for ell in range(args.mlp_depth-2):
+      h = (self.hidden_to_hidden_defs[ell])(h)
       h = nn.relu(h)
     h = self.output_def(h)
     return h
@@ -231,8 +231,9 @@ if args.nn_architecture == "CNN":
 else:
   model = MLP(input_to_hidden_def=nn.Dense(features=args.mlp_width,
                                            kernel_init=gn),
-              hidden_to_hidden_def=nn.Dense(features=args.mlp_width,
-                                            kernel_init=gn),
+              hidden_to_hidden_defs = [nn.Dense(features=args.mlp_width,
+                                                kernel_init=nn.initializers.glorot_normal())
+                                       for _ in range(args.mlp_depth-2)],
               output_def=nn.Dense(features=num_classes,
                                   kernel_init=gn))
   num_linear_layers = args.mlp_depth
@@ -257,8 +258,7 @@ def get_train_batches():
   # pylint: disable=g-long-lambda
   ds = ds.map(lambda x, y:
               (tf.cast(x, dtype=tf.float32)/256.0, tf.one_hot(y, num_classes)))
-  ds = ds.batch(args.batch_size, drop_remainder=True)
-  ds = ds.prefetch(tf.data.AUTOTUNE).repeat()
+  ds = ds.batch(args.batch_size, drop_remainder=True).repeat()
   return tfds.as_numpy(ds)
 
 
