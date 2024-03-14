@@ -96,7 +96,7 @@ class LanguageModel(hk.Module):
       tokens: jax.Array,  # Batch of sequences of input tokens, shape [B, T].
   ) -> jax.Array:  # Batch of sequences of output token logits, shape [B, T, V].
     """Forward pass, producing a sequence of logits."""
-    input_mask = jnp.greater(tokens, self.pad_token)
+    input_mask = (tokens != self.pad_token)
     unused_batch_size, seq_len = tokens.shape
 
     # Embed the input tokens and positions.
