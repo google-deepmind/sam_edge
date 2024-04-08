@@ -1,6 +1,7 @@
 ## Running experiments
 
-This code is provided to enable readers of ["Sharpness-Aware Minimization and the Edge of Stability"](https://arxiv.org/abs/2309.12488) to reproduce the experiments reported there, check implementation details, and run related experiments.
+This code is provided to enable readers of ["Sharpness-Aware Minimization and the Edge of Stability"](https://arxiv.org/abs/2309.12488) to reproduce the experiments reported there, check implementation details, and run related experiments.  
+
 
 The libraries needed to run the code are listed in `requirements.txt` and a sample script to install the required libraries and run one quick experiment is provided in `run.sh`.
 
@@ -16,6 +17,8 @@ python3 -m transformer --rho=0.1 \
         --training_data=tinyshakespeare_train.txt \
         --test_data=tinyshakespeare_test.txt \
 ```
+
+Results from the most recent version of the paper can be found in a [Google Drive folder](https://drive.google.com/drive/u/1/folders/1mTgRsMO1Ebrnup3vwor5-Ih6zeC3-ljZ).
 
 ## Command-line arguments for image classification experiments
 
