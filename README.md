@@ -1,3 +1,10 @@
+Disclaimer and Personal Statements of Tech Transfers from USA to PRC!
+
+U.S. EAR restricts AI exports (e.g., model weights >10^25 FLOP, ECCN 4E091) to PRC/Entity List.
+Check license needs: bis.doc.gov/ear. Report issues to compliance.
+
+Even if not controlled, I protest unauthorized sharing—protect U.S. security, in accordance with my rights to 1st Amendment.
+
 ## Running experiments
 
 This code is provided to enable readers of ["Sharpness-Aware Minimization and the Edge of Stability"](https://arxiv.org/abs/2309.12488) to reproduce the experiments reported there, check implementation details, and run related experiments.  
